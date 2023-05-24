@@ -1,41 +1,29 @@
 package com.example.expenseregister;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,11 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Spinner spinner = findViewById(R.id.my_spinner);
         ArrayList<String> categoriesList = new ArrayList<>();
-//        categoriesList.add("JAVA");
-//        categoriesList.add("ANDROID");
-//        categoriesList.add("C Language");
 
-        //Obtener categorias
         db.collection("categories")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -79,14 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("infoFirebase", "Spinner clicked");
                 selectedItem.set(adapterView.getItemAtPosition(i).toString());
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
             }
         });
     }
-
     public void registrarGasto(View view){
         Button saveButton = findViewById(R.id.button);
         saveButton.setEnabled(false);
@@ -120,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                         saveButton.setEnabled(true);
                     }
                 });
-//        Log.d("infoFirebase", "amount: " + amount + " description: " + desc + " category: " + category);
     }
 
 }
