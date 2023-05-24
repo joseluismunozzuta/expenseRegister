@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ExpenseRegister</string>
+    <string name="hola_registra_aqu_tus_gastos">Hola, registra aquí tus gastos</string>
+    <string name="monto_s">Monto (S/.)</string>
+    <string name="categor_a">Categoría</string>
+    <string name="registrar_gasto">Registrar gasto</string>
+    <string name="leer_datos">Leer datos</string>
+</resources>
