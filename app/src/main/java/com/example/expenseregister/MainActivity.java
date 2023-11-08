@@ -2,6 +2,8 @@ package com.example.expenseregister;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -102,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
                         saveButton.setEnabled(true);
                     }
                 });
+    }
+
+    public void goToExpenseViewer(View view){
+        Intent intent = new Intent(this, WebViewRegister.class);
+        startActivity(intent);
     }
 
 }
